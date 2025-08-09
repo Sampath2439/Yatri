@@ -14,9 +14,15 @@ export default function Index() {
       <div className="absolute inset-0">
         {/* Animated clouds */}
         <div className="absolute top-10 left-10 w-20 h-12 bg-white/10 rounded-full animate-pulse" />
-        <div className="absolute top-32 right-20 w-16 h-8 bg-white/10 rounded-full animate-pulse" style={{ animationDelay: "1s" }} />
-        <div className="absolute top-20 left-1/3 w-24 h-10 bg-white/10 rounded-full animate-pulse" style={{ animationDelay: "2s" }} />
-        
+        <div
+          className="absolute top-32 right-20 w-16 h-8 bg-white/10 rounded-full animate-pulse"
+          style={{ animationDelay: "1s" }}
+        />
+        <div
+          className="absolute top-20 left-1/3 w-24 h-10 bg-white/10 rounded-full animate-pulse"
+          style={{ animationDelay: "2s" }}
+        />
+
         {/* City skyline silhouettes */}
         <div className="absolute bottom-0 left-0 w-full h-32">
           <svg viewBox="0 0 1200 200" className="w-full h-full fill-black/20">
@@ -44,19 +50,44 @@ export default function Index() {
 
         {/* Vehicle illustrations */}
         <div className="absolute top-1/3 left-20 transform -translate-y-1/2">
-          <div className="w-16 h-16 relative animate-bounce" style={{ animationDelay: "0.5s" }}>
+          <div
+            className="w-16 h-16 relative animate-bounce"
+            style={{ animationDelay: "0.5s" }}
+          >
             <svg viewBox="0 0 64 64" className="w-full h-full fill-white/30">
               {/* Simple bike illustration */}
-              <circle cx="16" cy="48" r="12" stroke="currentColor" strokeWidth="2" fill="none" />
-              <circle cx="48" cy="48" r="12" stroke="currentColor" strokeWidth="2" fill="none" />
-              <path d="M16 48 L32 32 L48 48 M32 32 L32 20 M28 20 L36 20" stroke="currentColor" strokeWidth="2" fill="none" />
+              <circle
+                cx="16"
+                cy="48"
+                r="12"
+                stroke="currentColor"
+                strokeWidth="2"
+                fill="none"
+              />
+              <circle
+                cx="48"
+                cy="48"
+                r="12"
+                stroke="currentColor"
+                strokeWidth="2"
+                fill="none"
+              />
+              <path
+                d="M16 48 L32 32 L48 48 M32 32 L32 20 M28 20 L36 20"
+                stroke="currentColor"
+                strokeWidth="2"
+                fill="none"
+              />
               <circle cx="32" cy="16" r="6" />
             </svg>
           </div>
         </div>
 
         <div className="absolute top-2/3 right-32 transform -translate-y-1/2">
-          <div className="w-20 h-12 relative animate-bounce" style={{ animationDelay: "1.5s" }}>
+          <div
+            className="w-20 h-12 relative animate-bounce"
+            style={{ animationDelay: "1.5s" }}
+          >
             <svg viewBox="0 0 80 48" className="w-full h-full fill-white/30">
               {/* Simple car illustration */}
               <rect x="8" y="24" width="64" height="16" rx="4" />
@@ -73,30 +104,48 @@ export default function Index() {
       {/* Main content */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6">
         {/* Animated logo */}
-        <div 
+        <div
           className={`mb-8 transform transition-all duration-1000 ${
-            isVisible ? "translate-y-0 opacity-100" : "-translate-y-10 opacity-0"
+            isVisible
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-10 opacity-0"
           }`}
           style={{ animationDelay: "0.3s" }}
         >
-          <div className="bg-white/90 backdrop-blur-sm rounded-full p-6 shadow-2xl animate-bounce" style={{ animationDelay: "1s" }}>
+          <div
+            className="bg-white/90 backdrop-blur-sm rounded-full p-6 shadow-2xl animate-bounce"
+            style={{ animationDelay: "1s" }}
+          >
             <div className="w-20 h-20 flex items-center justify-center">
               <svg viewBox="0 0 80 80" className="w-full h-full">
                 <defs>
-                  <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient
+                    id="logoGradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
                     <stop offset="0%" stopColor="#F4A261" />
                     <stop offset="100%" stopColor="#2A9D8F" />
                   </linearGradient>
                 </defs>
                 <circle cx="40" cy="40" r="35" fill="url(#logoGradient)" />
-                <text x="40" y="48" textAnchor="middle" className="fill-white font-bold text-xl">Y</text>
+                <text
+                  x="40"
+                  y="48"
+                  textAnchor="middle"
+                  className="fill-white font-bold text-xl"
+                >
+                  Y
+                </text>
               </svg>
             </div>
           </div>
         </div>
 
         {/* Brand name */}
-        <div 
+        <div
           className={`mb-4 transform transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
@@ -108,7 +157,7 @@ export default function Index() {
         </div>
 
         {/* Tagline */}
-        <div 
+        <div
           className={`mb-12 transform transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
@@ -120,7 +169,7 @@ export default function Index() {
         </div>
 
         {/* Google Sign-in Button */}
-        <div 
+        <div
           className={`transform transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
@@ -134,20 +183,34 @@ export default function Index() {
         </div>
 
         {/* Footer */}
-        <div 
+        <div
           className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
           style={{ animationDelay: "1.5s" }}
         >
           <div className="flex space-x-8 text-white/70 text-sm">
-            <a href="#" className="hover:text-white transition-colors duration-200 hover:underline">About</a>
-            <a href="#" className="hover:text-white transition-colors duration-200 hover:underline">Support</a>
-            <a href="#" className="hover:text-white transition-colors duration-200 hover:underline">Privacy Policy</a>
+            <a
+              href="#"
+              className="hover:text-white transition-colors duration-200 hover:underline"
+            >
+              About
+            </a>
+            <a
+              href="#"
+              className="hover:text-white transition-colors duration-200 hover:underline"
+            >
+              Support
+            </a>
+            <a
+              href="#"
+              className="hover:text-white transition-colors duration-200 hover:underline"
+            >
+              Privacy Policy
+            </a>
           </div>
         </div>
       </div>
-
     </div>
   );
 }

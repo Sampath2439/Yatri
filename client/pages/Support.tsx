@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { 
-  ArrowLeft, 
-  MessageSquare, 
-  AlertTriangle, 
-  Shield, 
-  Phone, 
+import {
+  ArrowLeft,
+  MessageSquare,
+  AlertTriangle,
+  Shield,
+  Phone,
   CloudRain,
   Star,
   ThumbsUp,
@@ -18,7 +18,7 @@ import {
   FileText,
   Clock,
   CheckCircle,
-  Send
+  Send,
 } from "lucide-react";
 
 export default function Support() {
@@ -34,8 +34,9 @@ export default function Support() {
       date: "Dec 15, 2024",
       rideId: "YTR-2024-1215",
       rating: 5,
-      comment: "Excellent service! Driver was very professional and the ride was smooth.",
-      likes: 12
+      comment:
+        "Excellent service! Driver was very professional and the ride was smooth.",
+      likes: 12,
     },
     {
       id: 2,
@@ -43,8 +44,9 @@ export default function Support() {
       date: "Dec 14, 2024",
       rideId: "YTR-2024-1214",
       rating: 4,
-      comment: "Good experience overall. Driver arrived on time and vehicle was clean.",
-      likes: 8
+      comment:
+        "Good experience overall. Driver arrived on time and vehicle was clean.",
+      likes: 8,
     },
     {
       id: 3,
@@ -52,8 +54,9 @@ export default function Support() {
       date: "Dec 13, 2024",
       rideId: "YTR-2024-1213",
       rating: 5,
-      comment: "Amazing app! Very user-friendly and the safety features are great.",
-      likes: 15
+      comment:
+        "Amazing app! Very user-friendly and the safety features are great.",
+      likes: 15,
     },
     {
       id: 4,
@@ -62,15 +65,15 @@ export default function Support() {
       rideId: "YTR-2024-1212",
       rating: 4,
       comment: "Quick booking and fair pricing. Will definitely use again.",
-      likes: 6
-    }
+      likes: 6,
+    },
   ];
 
   const complaintCategories = [
     { value: "ride-quality", label: "Ride Quality" },
     { value: "safety", label: "Safety Issues" },
     { value: "payment", label: "Payment Issues" },
-    { value: "other", label: "Other" }
+    { value: "other", label: "Other" },
   ];
 
   const renderStars = (rating: number) => {
@@ -78,7 +81,9 @@ export default function Support() {
       <Star
         key={i}
         className={`w-4 h-4 ${
-          i < rating ? "fill-yatri-yellow-500 text-yatri-yellow-500" : "text-gray-300"
+          i < rating
+            ? "fill-yatri-yellow-500 text-yatri-yellow-500"
+            : "text-gray-300"
         }`}
       />
     ));
@@ -89,14 +94,16 @@ export default function Support() {
       {/* Header */}
       <div className="bg-white shadow-sm p-4">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
-          <Link 
-            to="/dashboard" 
+          <Link
+            to="/dashboard"
             className="flex items-center space-x-2 text-yatri-dark-500 hover:text-yatri-teal-500 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Back to Dashboard</span>
           </Link>
-          <h1 className="text-2xl font-bold text-yatri-dark-500">Support & Safety</h1>
+          <h1 className="text-2xl font-bold text-yatri-dark-500">
+            Support & Safety
+          </h1>
           <div className="w-20"></div>
         </div>
       </div>
@@ -135,15 +142,22 @@ export default function Support() {
               {/* Feedback Tab Content */}
               {activeTab === "feedback" && (
                 <div className="space-y-4">
-                  <h2 className="text-xl font-bold text-yatri-dark-500 mb-4">Customer Feedback</h2>
-                  
+                  <h2 className="text-xl font-bold text-yatri-dark-500 mb-4">
+                    Customer Feedback
+                  </h2>
+
                   {/* New Feedback Form */}
                   <div className="p-4 bg-yatri-teal-50 rounded-lg border-2 border-dashed border-yatri-teal-300">
-                    <h3 className="font-semibold text-yatri-dark-500 mb-3">Share Your Experience</h3>
+                    <h3 className="font-semibold text-yatri-dark-500 mb-3">
+                      Share Your Experience
+                    </h3>
                     <div className="space-y-3">
                       <div className="flex space-x-1">
                         {[1, 2, 3, 4, 5].map((star) => (
-                          <Star key={star} className="w-6 h-6 text-gray-300 hover:text-yatri-yellow-500 cursor-pointer" />
+                          <Star
+                            key={star}
+                            className="w-6 h-6 text-gray-300 hover:text-yatri-yellow-500 cursor-pointer"
+                          />
                         ))}
                       </div>
                       <textarea
@@ -163,11 +177,18 @@ export default function Support() {
                   {/* Feedback List */}
                   <div className="space-y-4 max-h-96 overflow-y-auto">
                     {feedbackData.map((feedback) => (
-                      <div key={feedback.id} className="p-4 bg-white border border-gray-200 rounded-lg">
+                      <div
+                        key={feedback.id}
+                        className="p-4 bg-white border border-gray-200 rounded-lg"
+                      >
                         <div className="flex items-start justify-between mb-3">
                           <div>
-                            <h4 className="font-semibold text-yatri-dark-500">{feedback.customerName}</h4>
-                            <p className="text-sm text-gray-500">{feedback.date} • Ride ID: {feedback.rideId}</p>
+                            <h4 className="font-semibold text-yatri-dark-500">
+                              {feedback.customerName}
+                            </h4>
+                            <p className="text-sm text-gray-500">
+                              {feedback.date} • Ride ID: {feedback.rideId}
+                            </p>
                           </div>
                           <div className="flex space-x-1">
                             {renderStars(feedback.rating)}
@@ -187,8 +208,10 @@ export default function Support() {
               {/* Complaint Tab Content */}
               {activeTab === "complaint" && (
                 <div className="space-y-4">
-                  <h2 className="text-xl font-bold text-yatri-dark-500 mb-4">Raise a Complaint</h2>
-                  
+                  <h2 className="text-xl font-bold text-yatri-dark-500 mb-4">
+                    Raise a Complaint
+                  </h2>
+
                   <div className="space-y-4">
                     {/* Category Selection */}
                     <div>
@@ -229,8 +252,12 @@ export default function Support() {
                       </label>
                       <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-yatri-teal-500 transition-colors cursor-pointer">
                         <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
-                        <p className="text-gray-500">Click to upload files or drag and drop</p>
-                        <p className="text-sm text-gray-400">PNG, JPG, PDF up to 10MB</p>
+                        <p className="text-gray-500">
+                          Click to upload files or drag and drop
+                        </p>
+                        <p className="text-sm text-gray-400">
+                          PNG, JPG, PDF up to 10MB
+                        </p>
                       </div>
                     </div>
 
@@ -253,21 +280,29 @@ export default function Support() {
                 <div className="p-3 bg-pink-100 rounded-full">
                   <Users className="w-6 h-6 text-pink-500" />
                 </div>
-                <h2 className="text-xl font-bold text-yatri-dark-500">Women Ride Safety</h2>
+                <h2 className="text-xl font-bold text-yatri-dark-500">
+                  Women Ride Safety
+                </h2>
               </div>
-              
+
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 p-3 bg-pink-50 rounded-lg">
                   <Shield className="w-5 h-5 text-pink-500" />
-                  <span className="text-sm text-gray-700">Female driver preference</span>
+                  <span className="text-sm text-gray-700">
+                    Female driver preference
+                  </span>
                 </div>
                 <div className="flex items-center space-x-3 p-3 bg-pink-50 rounded-lg">
                   <Heart className="w-5 h-5 text-pink-500" />
-                  <span className="text-sm text-gray-700">Safety companion feature</span>
+                  <span className="text-sm text-gray-700">
+                    Safety companion feature
+                  </span>
                 </div>
                 <div className="flex items-center space-x-3 p-3 bg-pink-50 rounded-lg">
                   <Camera className="w-5 h-5 text-pink-500" />
-                  <span className="text-sm text-gray-700">Live ride tracking</span>
+                  <span className="text-sm text-gray-700">
+                    Live ride tracking
+                  </span>
                 </div>
               </div>
 
@@ -282,21 +317,28 @@ export default function Support() {
                 <div className="p-3 bg-red-100 rounded-full animate-pulse">
                   <Phone className="w-6 h-6 text-red-500" />
                 </div>
-                <h2 className="text-xl font-bold text-yatri-dark-500">Emergency SOS</h2>
+                <h2 className="text-xl font-bold text-yatri-dark-500">
+                  Emergency SOS
+                </h2>
               </div>
-              
+
               <p className="text-gray-700 mb-4 text-sm">
-                In case of emergency, press the SOS button to immediately contact emergency services and share your location.
+                In case of emergency, press the SOS button to immediately
+                contact emergency services and share your location.
               </p>
 
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 p-3 bg-red-50 rounded-lg">
                   <PhoneCall className="w-5 h-5 text-red-500" />
-                  <span className="text-sm text-gray-700">Instant emergency call</span>
+                  <span className="text-sm text-gray-700">
+                    Instant emergency call
+                  </span>
                 </div>
                 <div className="flex items-center space-x-3 p-3 bg-red-50 rounded-lg">
                   <Shield className="w-5 h-5 text-red-500" />
-                  <span className="text-sm text-gray-700">Location sharing with contacts</span>
+                  <span className="text-sm text-gray-700">
+                    Location sharing with contacts
+                  </span>
                 </div>
               </div>
 
@@ -311,46 +353,58 @@ export default function Support() {
                 <div className="p-3 bg-blue-100 rounded-full">
                   <CloudRain className="w-6 h-6 text-blue-500" />
                 </div>
-                <h2 className="text-xl font-bold text-yatri-dark-500">Rainy Season Safety</h2>
+                <h2 className="text-xl font-bold text-yatri-dark-500">
+                  Rainy Season Safety
+                </h2>
               </div>
-              
+
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
                   <Umbrella className="w-5 h-5 text-blue-500" />
-                  <span className="text-sm text-gray-700">Weather-aware routing</span>
+                  <span className="text-sm text-gray-700">
+                    Weather-aware routing
+                  </span>
                 </div>
                 <div className="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
                   <Clock className="w-5 h-5 text-blue-500" />
-                  <span className="text-sm text-gray-700">Extended arrival times</span>
+                  <span className="text-sm text-gray-700">
+                    Extended arrival times
+                  </span>
                 </div>
                 <div className="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
                   <CheckCircle className="w-5 h-5 text-blue-500" />
-                  <span className="text-sm text-gray-700">Verified covered vehicles</span>
+                  <span className="text-sm text-gray-700">
+                    Verified covered vehicles
+                  </span>
                 </div>
               </div>
 
               <div className="mt-4 p-3 bg-blue-50 rounded-lg">
                 <p className="text-sm text-blue-700">
-                  <strong>Rain Alert:</strong> Heavy rainfall expected in your area. Consider using covered vehicles and allow extra travel time.
+                  <strong>Rain Alert:</strong> Heavy rainfall expected in your
+                  area. Consider using covered vehicles and allow extra travel
+                  time.
                 </p>
               </div>
             </div>
 
             {/* Additional Help */}
             <div className="bg-white rounded-xl shadow-lg p-6">
-              <h2 className="text-xl font-bold text-yatri-dark-500 mb-4">Additional Help</h2>
-              
+              <h2 className="text-xl font-bold text-yatri-dark-500 mb-4">
+                Additional Help
+              </h2>
+
               <div className="space-y-3">
                 <button className="w-full flex items-center space-x-3 p-3 text-left border border-gray-200 rounded-lg hover:border-yatri-teal-500 transition-colors">
                   <FileText className="w-5 h-5 text-yatri-teal-500" />
                   <span>FAQ & Help Center</span>
                 </button>
-                
+
                 <button className="w-full flex items-center space-x-3 p-3 text-left border border-gray-200 rounded-lg hover:border-yatri-teal-500 transition-colors">
                   <PhoneCall className="w-5 h-5 text-yatri-teal-500" />
                   <span>Call Customer Support</span>
                 </button>
-                
+
                 <button className="w-full flex items-center space-x-3 p-3 text-left border border-gray-200 rounded-lg hover:border-yatri-teal-500 transition-colors">
                   <MessageSquare className="w-5 h-5 text-yatri-teal-500" />
                   <span>Live Chat Support</span>

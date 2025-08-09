@@ -1,19 +1,19 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { 
-  Home, 
-  Car, 
-  HelpCircle, 
-  LogOut, 
-  User, 
-  Star, 
-  Shield, 
-  MapPin, 
+import {
+  Home,
+  Car,
+  HelpCircle,
+  LogOut,
+  User,
+  Star,
+  Shield,
+  MapPin,
   TrendingUp,
   Users,
   Route,
   Phone,
-  CloudRain
+  CloudRain,
 } from "lucide-react";
 
 export default function Dashboard() {
@@ -31,12 +31,15 @@ export default function Dashboard() {
             <span className="font-bold text-yatri-dark-500">47</span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2">
-            <div className="bg-yatri-yellow-500 h-2 rounded-full" style={{ width: "78%" }}></div>
+            <div
+              className="bg-yatri-yellow-500 h-2 rounded-full"
+              style={{ width: "78%" }}
+            ></div>
           </div>
           <p className="text-xs text-gray-600">78% to next milestone</p>
         </div>
       ),
-      icon: <TrendingUp className="w-6 h-6 text-yatri-yellow-500" />
+      icon: <TrendingUp className="w-6 h-6 text-yatri-yellow-500" />,
     },
     {
       id: 2,
@@ -57,7 +60,7 @@ export default function Dashboard() {
           </div>
         </div>
       ),
-      icon: <Route className="w-6 h-6 text-yatri-teal-500" />
+      icon: <Route className="w-6 h-6 text-yatri-teal-500" />,
     },
     {
       id: 3,
@@ -79,7 +82,7 @@ export default function Dashboard() {
           </div>
         </div>
       ),
-      icon: <Shield className="w-6 h-6 text-yatri-blue-500" />
+      icon: <Shield className="w-6 h-6 text-yatri-blue-500" />,
     },
     {
       id: 4,
@@ -90,9 +93,9 @@ export default function Dashboard() {
           <div className="flex items-center space-x-2">
             <div className="flex space-x-1">
               {[1, 2, 3, 4, 5].map((star) => (
-                <Star 
-                  key={star} 
-                  className="w-4 h-4 fill-yatri-yellow-500 text-yatri-yellow-500" 
+                <Star
+                  key={star}
+                  className="w-4 h-4 fill-yatri-yellow-500 text-yatri-yellow-500"
                 />
               ))}
             </div>
@@ -104,14 +107,14 @@ export default function Dashboard() {
           </div>
         </div>
       ),
-      icon: <Star className="w-6 h-6 text-yatri-yellow-500" />
-    }
+      icon: <Star className="w-6 h-6 text-yatri-yellow-500" />,
+    },
   ];
 
   const menuItems = [
     { id: "home", label: "Home", icon: Home },
     { id: "rides", label: "Rides", icon: Car },
-    { id: "support", label: "Support", icon: HelpCircle }
+    { id: "support", label: "Support", icon: HelpCircle },
   ];
 
   return (
@@ -133,7 +136,8 @@ export default function Dashboard() {
             {menuItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeSection === item.id;
-              const linkPath = item.id === "home" ? "/dashboard" : `/${item.id}`;
+              const linkPath =
+                item.id === "home" ? "/dashboard" : `/${item.id}`;
 
               return (
                 <Link
@@ -173,7 +177,9 @@ export default function Dashboard() {
             <h1 className="text-3xl font-bold text-yatri-dark-500 mb-2">
               Welcome back, John!
             </h1>
-            <p className="text-gray-600">Here's what's happening with your rides today.</p>
+            <p className="text-gray-600">
+              Here's what's happening with your rides today.
+            </p>
           </div>
 
           {/* Summary Cards */}
@@ -182,9 +188,9 @@ export default function Dashboard() {
               <div
                 key={card.id}
                 className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 p-6 cursor-pointer group"
-                style={{ 
+                style={{
                   animationDelay: `${index * 0.1}s`,
-                  animation: "fadeInUp 0.6s ease-out forwards"
+                  animation: "fadeInUp 0.6s ease-out forwards",
                 }}
               >
                 <div className="flex items-start justify-between mb-4">
@@ -205,7 +211,9 @@ export default function Dashboard() {
 
           {/* Quick Actions */}
           <div className="mt-8">
-            <h2 className="text-xl font-bold text-yatri-dark-500 mb-4">Quick Actions</h2>
+            <h2 className="text-xl font-bold text-yatri-dark-500 mb-4">
+              Quick Actions
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <Link to="/rides">
                 <button className="w-full bg-yatri-yellow-500 hover:bg-yatri-yellow-600 text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
@@ -227,24 +235,26 @@ export default function Dashboard() {
 
       {/* Right Stats Panel - 20% */}
       <div className="w-1/5 bg-white shadow-lg p-6">
-        <h2 className="text-lg font-bold text-yatri-dark-500 mb-6">Quick Stats</h2>
-        
+        <h2 className="text-lg font-bold text-yatri-dark-500 mb-6">
+          Quick Stats
+        </h2>
+
         <div className="space-y-6">
           <div className="text-center p-4 bg-yatri-yellow-50 rounded-lg">
             <div className="text-2xl font-bold text-yatri-yellow-600">47</div>
             <div className="text-sm text-yatri-dark-500">Total Rides</div>
           </div>
-          
+
           <div className="text-center p-4 bg-yatri-teal-50 rounded-lg">
             <div className="text-2xl font-bold text-yatri-teal-600">₹2,340</div>
             <div className="text-sm text-yatri-dark-500">This Month</div>
           </div>
-          
+
           <div className="text-center p-4 bg-yatri-blue-50 rounded-lg">
             <div className="text-2xl font-bold text-yatri-blue-600">4.8★</div>
             <div className="text-sm text-yatri-dark-500">Avg Rating</div>
           </div>
-          
+
           <div className="text-center p-4 bg-green-50 rounded-lg">
             <div className="text-2xl font-bold text-green-600">₹234</div>
             <div className="text-sm text-yatri-dark-500">Saved</div>
@@ -253,7 +263,9 @@ export default function Dashboard() {
 
         {/* Recent Activity */}
         <div className="mt-8">
-          <h3 className="font-semibold text-yatri-dark-500 mb-4">Recent Activity</h3>
+          <h3 className="font-semibold text-yatri-dark-500 mb-4">
+            Recent Activity
+          </h3>
           <div className="space-y-3">
             <div className="text-sm p-3 bg-gray-50 rounded">
               <div className="font-medium">Ride to Airport</div>

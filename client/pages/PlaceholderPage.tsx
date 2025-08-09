@@ -7,13 +7,17 @@ interface PlaceholderPageProps {
   suggestedPrompt: string;
 }
 
-export default function PlaceholderPage({ title, description, suggestedPrompt }: PlaceholderPageProps) {
+export default function PlaceholderPage({
+  title,
+  description,
+  suggestedPrompt,
+}: PlaceholderPageProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-yatri-blue-50 to-yatri-yellow-50">
       {/* Navigation */}
       <div className="bg-white shadow-sm p-4">
-        <Link 
-          to="/dashboard" 
+        <Link
+          to="/dashboard"
           className="flex items-center space-x-2 text-yatri-dark-500 hover:text-yatri-teal-500 transition-colors"
         >
           <ArrowLeft className="w-5 h-5" />
@@ -35,9 +39,7 @@ export default function PlaceholderPage({ title, description, suggestedPrompt }:
           </h1>
 
           {/* Description */}
-          <p className="text-gray-600 mb-8 leading-relaxed">
-            {description}
-          </p>
+          <p className="text-gray-600 mb-8 leading-relaxed">{description}</p>
 
           {/* Suggestion Box */}
           <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-yatri-teal-500">
