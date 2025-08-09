@@ -3,6 +3,7 @@
 ## Setup Instructions
 
 ### 1. Install Vercel CLI (Optional)
+
 ```bash
 npm i -g vercel
 ```
@@ -10,11 +11,13 @@ npm i -g vercel
 ### 2. Deploy to Vercel
 
 #### Option A: GitHub Integration (Recommended)
+
 1. Push your code to GitHub
 2. Connect your GitHub repo to Vercel
 3. Vercel will automatically deploy on every push
 
 #### Option B: Direct Deployment with CLI
+
 ```bash
 vercel --prod
 ```
@@ -31,6 +34,7 @@ The app is configured with:
 ### 4. Environment Variables
 
 If you have any environment variables, add them in the Vercel dashboard:
+
 - Go to your project in Vercel
 - Navigate to Settings → Environment Variables
 - Add your variables there
@@ -38,6 +42,7 @@ If you have any environment variables, add them in the Vercel dashboard:
 ### 5. Custom Domain (Optional)
 
 To add a custom domain:
+
 1. Go to your project in Vercel
 2. Navigate to Settings → Domains
 3. Add your custom domain
