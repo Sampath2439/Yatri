@@ -204,14 +204,6 @@ export default function Index() {
         </div>
       </div>
 
-      <style jsx>{`
-        .hover\\:glow:hover {
-          box-shadow: 0 0 30px rgba(244, 162, 97, 0.3);
-        }
-        .shadow-3xl {
-          box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
-        }
-      `}</style>
     </div>
   );
 }
