@@ -5,6 +5,7 @@
 ### Method 1: GitHub Integration (Recommended)
 
 1. **Push to GitHub**:
+
    ```bash
    git add .
    git commit -m "Prepare for Vercel deployment"
@@ -12,32 +13,36 @@
    ```
 
 2. **Connect to Vercel**:
+
    - Go to [vercel.com](https://vercel.com)
    - Click "New Project"
    - Import your GitHub repository
    - Vercel will auto-detect the configuration
 
 3. **Deploy**:
-   - Click "Deploy" 
+   - Click "Deploy"
    - Vercel will automatically build and deploy your app
 
 ### Method 2: Vercel CLI
 
 1. **Install Vercel CLI**:
+
    ```bash
    npm install -g vercel
    ```
 
 2. **Login to Vercel**:
+
    ```bash
    vercel login
    ```
 
 3. **Deploy**:
+
    ```bash
    # For production deployment
    vercel --prod
-   
+
    # For preview deployment
    vercel
    ```
@@ -45,13 +50,16 @@
 ## ⚙️ Build Configuration
 
 ### Automatic Detection
+
 Vercel will automatically detect:
+
 - **Framework**: React/Vite
 - **Build Command**: `vite build`
 - **Output Directory**: `dist/spa`
 - **Node.js Version**: 18.x or later
 
 ### Manual Configuration (if needed)
+
 If auto-detection fails, set these in Vercel dashboard:
 
 - **Build Command**: `vite build`
@@ -75,6 +83,7 @@ yatri-app/
 ## 🔧 Key Configuration Files
 
 ### `vercel.json`
+
 ```json
 {
   "version": 2,
@@ -94,6 +103,7 @@ yatri-app/
 ```
 
 ### `package.json` scripts
+
 ```json
 {
   "scripts": {
@@ -107,14 +117,16 @@ yatri-app/
 ## 🌐 URLs After Deployment
 
 Once deployed, your app will be available at:
+
 - **Production**: `https://your-app-name.vercel.app`
-- **API Endpoints**: 
+- **API Endpoints**:
   - `https://your-app-name.vercel.app/api/ping`
   - `https://your-app-name.vercel.app/api/demo`
 
 ## 🔄 Automatic Deployments
 
 With GitHub integration:
+
 - **Production**: Pushes to `main` branch → Auto-deploy to production
 - **Preview**: Pushes to other branches → Auto-deploy to preview URLs
 - **Pull Requests**: Automatic preview deployments for each PR
@@ -124,16 +136,19 @@ With GitHub integration:
 ### Common Issues:
 
 1. **White Screen**:
+
    - Check build logs in Vercel dashboard
    - Ensure `dist/spa` contains `index.html`
    - Verify no server imports in client code
 
 2. **API Routes Not Working**:
+
    - Ensure API files are in `/api` directory
    - Check function exports: `export default function handler(req, res) {}`
    - Verify routes start with `/api/`
 
 3. **Build Failures**:
+
    - Check Node.js version (minimum 18.x)
    - Verify all dependencies in `package.json`
    - Check for TypeScript errors
@@ -143,6 +158,7 @@ With GitHub integration:
    - Check SPA routing configuration
 
 ### Debug Commands:
+
 ```bash
 # Local build test
 npm run build
@@ -159,6 +175,7 @@ npm run dev
 ## 🎯 Production Checklist
 
 Before deploying:
+
 - [ ] All routes work locally (`npm run dev`)
 - [ ] Build succeeds (`npm run build`)
 - [ ] Preview works (`npm run preview`)
@@ -169,6 +186,7 @@ Before deploying:
 ## 🔧 Environment Variables
 
 If you need environment variables:
+
 1. Go to Vercel Dashboard → Project → Settings → Environment Variables
 2. Add your variables (e.g., API keys, database URLs)
 3. Redeploy to apply changes
@@ -176,6 +194,7 @@ If you need environment variables:
 ## 📞 Support
 
 If deployment fails:
+
 1. Check Vercel build logs
 2. Test locally with production build
 3. Verify all files are committed to Git
