@@ -132,19 +132,23 @@ export default function Dashboard() {
           <nav className="space-y-2">
             {menuItems.map((item) => {
               const Icon = item.icon;
+              const isActive = activeSection === item.id;
+              const linkPath = item.id === "home" ? "/dashboard" : `/${item.id}`;
+
               return (
-                <button
+                <Link
                   key={item.id}
+                  to={linkPath}
                   onClick={() => setActiveSection(item.id)}
                   className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200 ${
-                    activeSection === item.id
+                    isActive
                       ? "bg-yatri-yellow-500 text-white shadow-md"
                       : "text-gray-600 hover:bg-gray-100"
                   }`}
                 >
                   <Icon className="w-5 h-5" />
                   <span className="font-medium">{item.label}</span>
-                </button>
+                </Link>
               );
             })}
           </nav>
