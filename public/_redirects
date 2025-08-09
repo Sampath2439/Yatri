@@ -1,0 +1,5 @@
+# Redirect all non-API routes to index.html for client-side routing
+/*    /index.html   200
+
+# API routes go to serverless functions
+/api/*  /api/index  200
