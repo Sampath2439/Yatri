@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "buildCommand": "vite build",
+=======
+  "buildCommand": "npm run build:client",
+>>>>>>> 9b8f692381c395967d89f2b4baa9ff8ce940e753
   "outputDirectory": "dist/spa",
   "routes": [
     {
