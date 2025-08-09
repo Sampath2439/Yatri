@@ -1,62 +1,43 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { User, Session, AuthError } from "@supabase/supabase-js";
-import { supabase } from "@/lib/supabase";
 
 interface AuthContextType {
-  user: User | null;
-  session: Session | null;
+  user: any | null; // Change User to a more generic type or define a basic User interface
   loading: boolean;
-  signInWithGoogle: () => Promise<{ error: AuthError | null }>;
-  signOut: () => Promise<{ error: AuthError | null }>;
+  signInWithGoogle: () => Promise<{ error: Error | null }>;
+  signOut: () => Promise<{ error: Error | null }>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [session, setSession] = useState<Session | null>(null);
+  const [user, setUser] = useState<any | null>(null); // Change User to any
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
       setLoading(false);
     });
 
-    // Listen for auth changes
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      setLoading(false);
-    });
-
-    return () => subscription.unsubscribe();
+    return () => unsubscribe();
   }, []);
 
   const signInWithGoogle = async () => {
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: `${window.location.origin}/dashboard`,
-      },
-    });
-    return { error };
+    // Placeholder for future Firebase implementation
+    console.log("signInWithGoogle called (placeholder)");
+    return { error: new Error("Firebase not initialized") };
+  };
+  const signOut = async (): Promise<{ error: Error | null }> => {
+    // Placeholder for future Firebase implementation
+    console.log("signOut called (placeholder)");
+    return { error: new Error("Firebase not initialized") };
   };
 
-  const signOut = async () => {
-    const { error } = await supabase.auth.signOut();
-    return { error };
-  };
-
+  // Provide a basic context without Firebase functionality initially
   return (
     <AuthContext.Provider
       value={{
         user,
-        session,
         loading,
         signInWithGoogle,
         signOut,
