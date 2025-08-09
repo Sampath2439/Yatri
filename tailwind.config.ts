@@ -57,6 +57,37 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Yatri brand colors
+        yatri: {
+          blue: {
+            DEFAULT: "#0D1B2A",
+            50: "#E8F4FD",
+            100: "#C8E5F9",
+            500: "#0D1B2A",
+            900: "#0A1520",
+          },
+          yellow: {
+            DEFAULT: "#F4A261",
+            50: "#FEF7F0",
+            100: "#FDECD6",
+            500: "#F4A261",
+            600: "#E09142",
+          },
+          teal: {
+            DEFAULT: "#2A9D8F",
+            50: "#E8F7F5",
+            100: "#C4EDE7",
+            500: "#2A9D8F",
+            600: "#238A7B",
+          },
+          dark: {
+            DEFAULT: "#264653",
+            50: "#F0F4F2",
+            100: "#D8E4DF",
+            500: "#264653",
+            600: "#1E3A43",
+          },
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
