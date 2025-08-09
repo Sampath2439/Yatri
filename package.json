@@ -15,14 +15,14 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "npm run build:client",
+    "build": "vite build",
     "build:client": "vite build",
     "build:server": "vite build --config vite.config.server.ts",
     "start": "node dist/server/node-build.mjs",
-    "vercel-build": "vite build",
     "test": "vitest --run",
     "format.fix": "prettier --write .",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.54.0",
