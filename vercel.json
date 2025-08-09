@@ -1,27 +1,20 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/node"
-    }
-  ],
+  "buildCommand": "npm run build:client",
+  "outputDirectory": "dist/spa",
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/server/index.ts"
+      "dest": "/api/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/dist/spa/$1"
+      "dest": "/index.html"
     }
   ],
-  "outputDirectory": "dist/spa",
-  "buildCommand": "npm run build",
-  "installCommand": "npm install",
   "functions": {
-    "server/index.ts": {
-      "maxDuration": 30
+    "api/*.ts": {
+      "runtime": "nodejs18.x"
     }
   }
 }
