@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 import { 
   Home, 
   Car, 
@@ -18,6 +19,41 @@ import {
 
 export default function Dashboard() {
   const [activeSection, setActiveSection] = useState("home");
+  const { user, signOut, loading } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Redirect to landing page if user is not authenticated
+    if (!user && !loading) {
+      navigate('/');
+    }
+  }, [user, loading, navigate]);
+
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      navigate('/');
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
+  };
+
+  // Show loading state while checking authentication
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-yatri-teal-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-yatri-dark-500 text-lg">Loading dashboard...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Don't render dashboard if user is not authenticated
+  if (!user) {
+    return null;
+  }
 
   const summaryCards = [
     {
@@ -124,7 +160,7 @@ export default function Dashboard() {
             <div className="w-16 h-16 bg-gradient-to-br from-yatri-yellow-500 to-yatri-teal-500 rounded-full mx-auto mb-3 flex items-center justify-center">
               <User className="w-8 h-8 text-white" />
             </div>
-            <h3 className="font-semibold text-yatri-dark-500">John Doe</h3>
+            <h3 className="font-semibold text-yatri-dark-500">{user.user_metadata?.full_name || user.email}</h3>
             <p className="text-sm text-gray-500">Premium Member</p>
           </div>
 
@@ -156,12 +192,13 @@ export default function Dashboard() {
 
         {/* Sign Out Button */}
         <div className="absolute bottom-6 left-6 right-6">
-          <Link to="/">
-            <button className="w-full flex items-center space-x-3 px-4 py-3 text-red-500 hover:bg-red-50 rounded-lg transition-colors duration-200">
-              <LogOut className="w-5 h-5" />
-              <span className="font-medium">Sign Out</span>
-            </button>
-          </Link>
+          <button
+            onClick={handleSignOut}
+            className="w-full flex items-center space-x-3 px-4 py-3 text-red-500 hover:bg-red-50 rounded-lg transition-colors duration-200"
+          >
+            <LogOut className="w-5 h-5" />
+            <span className="font-medium">Sign Out</span>
+          </button>
         </div>
       </div>
 
@@ -171,7 +208,7 @@ export default function Dashboard() {
           {/* Header */}
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-yatri-dark-500 mb-2">
-              Welcome back, John!
+              Welcome back, {user.user_metadata?.full_name?.split(' ')[0] || user.email?.split('@')[0]}!
             </h1>
             <p className="text-gray-600">Here's what's happening with your rides today.</p>
           </div>
